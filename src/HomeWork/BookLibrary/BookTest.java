@@ -1,4 +1,4 @@
-package Lesson.BookLibrary;
+package HomeWork.BookLibrary;
 
 /* Исполняемая программа */
 

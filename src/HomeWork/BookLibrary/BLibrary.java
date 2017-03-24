@@ -1,4 +1,4 @@
-package Lesson.BookLibrary;
+package HomeWork.BookLibrary;
 
 /* Класс Library */
 
@@ -16,13 +16,13 @@ public class BLibrary {
 
                                                                   //заполняем библиотеку книгами
 
-    public void put(Book book, int quantity) {
+    void put(Book book, int quantity) {
         if (quantity <= 0) System.out.println("Вы ошиблись.");
 
                                                                   //проверяем кол-во свободных мест
         int freePlaces = 0;
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null) freePlaces++;
+        for (Book book1 : books) {
+            if (book1 == null) freePlaces++;
         }
         if(freePlaces < quantity) System.out.println("Мы не можем принять такое кол-во книг." +
                 "\nСвободных мест: " + freePlaces);
@@ -42,7 +42,7 @@ public class BLibrary {
     }
 
                                                                        //берём книги из библиотеки
-    public int get(Book book, int quantity) {
+    int get(Book book, int quantity) {
         if (quantity <= 0) System.out.println("Вы ошиблись");
 
                                                                        //проверяем есть ли такая книга в нашей библиотеке в доступном количестве
@@ -69,7 +69,7 @@ public class BLibrary {
     }
 
                                                                          //смотрим всю библиотеку
-    public void showBooks() {
+    void showBooks() {
         for (Book b : books) {
             if (b == null) continue;
             System.out.println(b);

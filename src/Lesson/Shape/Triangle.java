@@ -23,5 +23,3 @@ public class Triangle extends Shape {
         return (int) (Math.sqrt(3) / 4 * (a * a));
     }
 }
-
-
