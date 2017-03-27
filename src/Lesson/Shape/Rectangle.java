@@ -3,11 +3,11 @@ package Lesson.Shape;
 /*   */
 
 
-public class Rectangle extends Shape{
+public class Rectangle implements Shape{
     protected int a;
     protected int b;
 
-    public Rectangle(int a, int b) {
+    Rectangle(int a, int b) {
         this.a = a;
         this.b = b;
     }

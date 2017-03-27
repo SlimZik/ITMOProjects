@@ -1,12 +1,12 @@
-package HomeWork.Accumulator;
+package HomeWork.Accumulator1;
 
-/* Класс - Accumulator */
+/* Класс - Accumulator1 */
 
 class Accumulator {                                           // Устанавливаем значения
     private double value;
     private A_Operation operation;
 
-    Accumulator(int value, A_Operation operation) {           // Смотри класс Operation
+    Accumulator(double value, A_Operation operation) {           // Смотри класс Operation
 
         this.value = value;
         this.operation = operation;

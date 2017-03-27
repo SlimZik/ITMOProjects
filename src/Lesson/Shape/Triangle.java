@@ -2,7 +2,7 @@ package Lesson.Shape;
 
 /* Наследование */
 
-public class Triangle extends Shape {
+public class Triangle implements Shape {
     private int a;
     private int b;
     private int c;
