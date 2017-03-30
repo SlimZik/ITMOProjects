@@ -2,9 +2,9 @@ package HomeWork.BookLibrary;
 
 /* Исполняемая программа */
 
-public class BookTest {
+public class BookMain {
     public static void main(String[] args) {
-        BLibrary library = new BLibrary();
+        BookLibrary library = new BookLibrary();
 
         Book b1 = new Book("\"Древний: Возрождение\"", "Тармашев С.", 631);
         Book b2 = new Book("\"Властелин Колец Трилогия\"", "Толкиен Дж.Р.Р.", 812);

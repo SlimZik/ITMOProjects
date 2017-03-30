@@ -2,17 +2,17 @@ package HomeWork.Accumulator1;
 
 /* Класс - Accumulator1 */
 
-class Accumulator {                                           // Устанавливаем значения
+class Accumulator {                                              // Устанавливаем значения
     private double value;
-    private A_Operation operation;
+    private Operation operation;
 
-    Accumulator(double value, A_Operation operation) {           // Смотри класс Operation
+    Accumulator(double value, Operation operation) {             // Смотри класс Operation
 
         this.value = value;
         this.operation = operation;
     }
 
-    int calculate(int a) {                                    // Метод calculate
+    int calculate(int a) {                                       // Метод calculate
         value = operation.apply(value, a);
         return (int) value;
     }
@@ -22,10 +22,6 @@ class Accumulator {                                           // Устанав�
         return value;
     }
 
-    /*public long calculate(long a) {
-        value = operation.apply(value, a);
-        return (long) value;
-    }*/
 
     double getValue() {                                       // Вывод
         return value;

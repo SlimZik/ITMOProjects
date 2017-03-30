@@ -3,10 +3,10 @@ package Lesson.List;
 
 import java.util.Iterator;
 
-public class LList implements List, LStack {
+public class LinkedList implements List, LinkedListStack {
     private LItem head;
 
-    public void push(Object val) {                          // Реализация Stack
+    public void push(Object val) {                          // Реализация Stack <--- положим
         LItem next = head;
 
         head = new LItem(val);
@@ -16,8 +16,8 @@ public class LList implements List, LStack {
 
     public Object poll() {
         return remove(0);
-    }           // Реализация Stack
-
+    }           // Реализация Stack ---> заберем
+// Добавляем объект
     public void add(Object Object) {
         if (head == null) {
             head = new LItem(Object);
@@ -37,7 +37,7 @@ public class LList implements List, LStack {
             prev = next;
         }
     }
-
+// Взятие по индексу ---------
     public Object get(int i) {
         if (head == null)
             return null;
@@ -59,7 +59,7 @@ public class LList implements List, LStack {
             prev = next;
         }
     }
-
+// Удаление по индексу ----------
     public Object remove(int i) {
         if (head == null)
             return null;
@@ -92,9 +92,34 @@ public class LList implements List, LStack {
             prev = next;
         }
     }
-
+// Итератор --------------------------------------------------
     @Override
-    public Iterator iterator() {
-        return new ListIterator(head);
+    public Iterator iterator() {return new ListIterator(head);}
+// Вложенный класс Итем ------------------------------------------------------
+    private static class LItem {
+        Object value;
+        LItem next;
+
+        LItem(Object value) {
+            this.value = value;
+        }
+    }
+// Вложенный класс Итератор -------------------------------
+    private static class ListIterator implements Iterator {
+        private LItem next;
+
+        ListIterator(LItem next) {
+            this.next = next;
+        }
+        @Override
+        public boolean hasNext(){
+            return next != null;
+        }
+        @Override
+        public Object next(){
+            LItem next = this.next;
+            this.next = next.next;
+            return next.value;
+        }
     }
 }

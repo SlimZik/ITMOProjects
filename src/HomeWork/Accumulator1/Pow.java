@@ -1,7 +1,7 @@
 package HomeWork.Accumulator1;
 
 /* перация - Возведение в степень */
-public class A_Pow implements A_Operation {             // Наследование
+public class Pow implements Operation {             // Наследование
 
     @Override
     public int apply(int a, int b) {return (int)Math.pow(a, b);

@@ -2,9 +2,9 @@ package Lesson.List;
 
 /*  */
 
-public class LMain {
+public class LinkedListMain {
     public static void main(String[] args) {
-        LList list = new LList();
+        LinkedList list = new LinkedList();
 
         for (int i = 0; i < 10; i++) {
             list.add(String.valueOf(i));

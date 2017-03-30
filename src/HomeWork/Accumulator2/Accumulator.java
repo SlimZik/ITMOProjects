@@ -5,9 +5,9 @@ package HomeWork.Accumulator2;
 class Accumulator {                                                     // Устанавливаем значения в данном случае у нас будет массив
 
     private double[] value;
-    private A_Operation[] operation;
+    private Operation[] operation;
 
-    Accumulator(double[] value, A_Operation[] operation) {              // Смотри класс Operation
+    Accumulator(double[] value, Operation[] operation) {               // Смотри класс Operation
 
         this.value = value;
         this.operation = operation;

@@ -1,7 +1,7 @@
 package HomeWork.Accumulator1;
 
 /* Операция - Остаток от деления */
-public class A_Mod implements A_Operation {             // Наследование
+public class Mod implements Operation {             // Наследование
 
     @Override
     public int apply(int a, int b) {

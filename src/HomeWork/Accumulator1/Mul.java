@@ -1,7 +1,7 @@
 package HomeWork.Accumulator1;
 
 /* Операция - Умножение */
-public class A_Mul implements A_Operation {             // Наследование
+public class Mul implements Operation {             // Наследование
 
     @Override
     public int apply(int a, int b) {

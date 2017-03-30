@@ -7,7 +7,7 @@ class LinkedList {
     private Item head;              // указатель на первый элемент
     private Item tail;              // указатель последний элемент
 
-    void addF(int data)             //добавить спереди
+    void addF(Object data)          //добавить значение(объект) в начало списка
     {
         Item a = new Item();        //создаём новый элемент
         a.data = data;              //инициализируем данные.
@@ -23,7 +23,7 @@ class LinkedList {
         }
     }
 
-    void addB(int data) {                   //добавление в конец списка
+    void addB(Object data) {                //добавление значения(объекта) в конец списка
         Item a = new Item();                //создаём новый элемент
         a.data = data;
         if (tail == null)                   //если список пуст
@@ -46,7 +46,7 @@ class LinkedList {
         }
     }
 
-    void remove(int data)               //удаление элемента
+    void remove(Object data)               //удаление элемента
     {
         if(head == null)                //если список пуст -
             return;                     //ничего не делаем
@@ -73,6 +73,12 @@ class LinkedList {
                 return;                 //и выходим
             }
             t = t.next;                 //иначе ищем дальше
+
         }
+    }
+
+    private static class Item {
+        Item next;                               // указатель на следующий элемент
+        Object data;                             // данные
     }
 }

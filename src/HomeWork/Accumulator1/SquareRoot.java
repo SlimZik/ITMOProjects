@@ -1,7 +1,7 @@
 package HomeWork.Accumulator1;
 
 /* Операция - Квадратный корень */
-public class A_SquareRoot implements A_Operation {             // Наследование
+public class SquareRoot implements Operation {             // Наследование
 
     @Override
     public int apply(int a, int b) {return (int) Math.sqrt(b);

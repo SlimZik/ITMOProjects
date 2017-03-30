@@ -8,7 +8,6 @@ public class ArrayIterator implements Iterator {
 
     private Object[] array;
     private int index = 0;
-    private int size;
 
     ArrayIterator(Object[] array) {
         this.array = array;

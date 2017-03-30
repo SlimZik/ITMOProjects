@@ -2,7 +2,7 @@ package Lesson.List;
 
 /*  */
 
-public interface LStack {
+public interface LinkedListStack {
 
     void push (Object o);
 

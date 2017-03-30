@@ -6,13 +6,13 @@ package HomeWork.Accumulator2;
 
 import java.util.Arrays;
 
-public class A_Test {
+public class Main {
     
     public static void main(String[] args) {
 
         System.out.println("Массив чисел: ");
         double[] values = {20, 5, 17, 55.5, 80, 100};
-        A_Operation[] operation = {new A_Plus(), new A_Minus(), new A_Divide(), new A_Mod(), new A_Pow(), new A_SquareRoot()};
+        Operation[] operation = {new Plus(), new Minus(), new Divide(), new Mod(), new Pow(), new SquareRoot()};
 
         Accumulator acc = new Accumulator(values, operation);
 

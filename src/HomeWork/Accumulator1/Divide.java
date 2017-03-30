@@ -1,7 +1,7 @@
 package HomeWork.Accumulator1;
 
 /* Операция - Деление */
-public class A_Divide implements A_Operation {             // Наследование
+public class Divide implements Operation {             // Наследование
 
     @Override
     public int apply(int a, int b) {

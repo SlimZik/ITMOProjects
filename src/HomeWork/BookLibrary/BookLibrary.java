@@ -2,7 +2,7 @@ package HomeWork.BookLibrary;
 
 /* Класс Library */
 
-public class BLibrary {
+public class BookLibrary {
     private int totalPlaces = 5;                                  //всего мест в библиотеке
     private Book[] books = new Book[totalPlaces];
 
@@ -19,7 +19,7 @@ public class BLibrary {
     void put(Book book, int quantity) {
         if (quantity <= 0) System.out.println("Вы ошиблись.");
 
-                                                                  //проверяем кол-во свободных мест
+        int index = book.hashCode() % books.length;                                                          //проверяем кол-во свободных мест
         int freePlaces = 0;
         for (Book book1 : books) {
             if (book1 == null) freePlaces++;

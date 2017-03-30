@@ -2,7 +2,7 @@ package HomeWork.Accumulator1;
 
 /* Класс - Operation */
 
-public interface A_Operation {
+public interface Operation {
 
         int apply(int a1, int a2);
 
