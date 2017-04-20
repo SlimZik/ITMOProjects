@@ -12,7 +12,7 @@ public class LinkedListMain {
         }
         for (Integer o : list){
 
-            //list.add(10); //  выбросит Exception
+            //list.remove(9); //  выбросит Concurrent Modification Exception
 
             System.out.println(o);
         }

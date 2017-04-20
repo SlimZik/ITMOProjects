@@ -1,87 +1,35 @@
 package othertask.lessonarray;
 
-import javax.crypto.*;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.util.Scanner;
 
 public class CryptoProVer2 {
+    public static void main(String[] args) throws InterruptedException {
+        Scanner in = new Scanner(System.in);
 
-    private static String pad2(String n) {
-        if (n.length() < 2) {
-            return "0" + n;
-        } else {
-            return n;
-        }
+        System.out.println("Введите сообщение: ");
+
+        String secretText = in.nextLine();                                                                              // текст который нужно зашифровать
+
+        System.out.println("Введите ключ: ");
+
+        String secretKey = in.nextLine();                                                                               // наш ключ / пароль
+
+
+        byte[] text = secretText.getBytes();                                                                            // Создаем байтовый массив с тестом
+        byte[] key = secretKey.getBytes();                                                                              // Создаем байтовый массив с ключом
+
+        System.out.println("Ваше сообщение: " + new String(text));                                                      // Вывод на экран
+        Thread.sleep(5000);
+        crypt(text, key);
+        System.out.println("Шифровка: " + new String(text));
+        Thread.sleep(5000);
+        crypt(text, key);
+        System.out.println("\nДекодировка шифра: " + new String(text));
     }
 
-    private static String hex(byte[] bytes) {
-        String r = "";
-        for (byte aByte : bytes) {
-            r = r + pad2(Integer.toHexString(aByte + 128));
-        }
-        return r;
-    }
-
-    private static String safePassword(String unsafe) {
-        String safe = unsafe;
-        if (safe.length() > 16) {
-            safe = safe.substring(0, 16);
-        }
-        int nn = safe.length();
-        for (int i = nn - 1; i < 15; i++) {
-            safe = safe + "*";
-        }
-        return safe;
-    }
-
-    private static String encrypt(String value, String password) throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        SecretKey key = new SecretKeySpec(safePassword(password).getBytes("UTF-8"), "AES");
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-        byte[] encrypted = cipher.doFinal(value.getBytes("UTF-8"));
-        return hex(encrypted);
-    }
-
-    private static int parseInt2(String s) {
-        return (new java.math.BigInteger(s, 16)).intValue();
-    }
-
-    private static byte[] fromHex(String enc) {
-        byte[] r = new byte[enc.length() / 2];
-        for (int i = 0; i < r.length; i++) {
-            int n = parseInt2(enc.substring(i * 2, i * 2 + 2)) - 128;
-            r[i] = (byte) n;
-        }
-        return r;
-    }
-
-    private static String decrypt(String value, String password) throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        byte[] encypted = fromHex(value);
-        SecretKey key = new SecretKeySpec(safePassword(password).getBytes("UTF-8"), "AES");
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
-        cipher.init(Cipher.DECRYPT_MODE, key);
-        byte[] decrypted = cipher.doFinal(encypted);
-        return new String(decrypted, "UTF-8");
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Сообщение для шифровки: ");
-        Scanner scn = new Scanner(System.in);
-        String text = scn.nextLine();
-        String password = "qwerty";
-        try {
-            System.out.println("Сообщение: " + text);
-            System.out.println("Пароль: " + password);
-            String cripted = CryptoProVer2.encrypt(text, password);
-            System.out.println("Шифр: " + cripted);
-            String decripted = CryptoProVer2.decrypt(cripted, password);
-            System.out.println("Дешифровка: " + decripted);
-        } catch (Throwable t) {
-            t.printStackTrace();
+    public static void crypt(byte[] txt, byte[] key) {                                                                  // Шифрование
+        for (int i = 0; i < txt.length; i++) {
+            txt[i] ^= key[i % key.length];
         }
     }
 }
