@@ -14,6 +14,8 @@ public class WeekendCounter {
 
         System.out.println("Количество выходных дней: " + countWeekend(start, end));
 
+        System.out.println("Количество пятниц 13: " + countDeathFridays(start, end));
+
     }
 
     static int countWeekend(LocalDate start, LocalDate end) {
@@ -29,5 +31,19 @@ public class WeekendCounter {
             start = start.plusDays(1);
         }
         return weekdays;
+    }
+    static long countDeathFridays(final LocalDate start, final LocalDate end) {
+        long result = 0L;
+        LocalDate iter = start;
+        while (iter.getDayOfMonth() != 13) {     // Переходим к ближайшему 13-ому числу месяца
+            iter = iter.plusDays(1);
+        }
+        while (iter.compareTo(end) < 0) {   // Пока текущая дата меньше конечной
+            if (iter.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+                result++;
+            }
+            iter = iter.plusMonths(1);          // Плюсуем месяц
+        }
+        return result;
     }
 }
