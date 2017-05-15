@@ -4,9 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 
-/**
- * Created by SLimZik on 12.05.2017.
- */
+
 public class WeekendCounter {
     public static void main(String[] args) {
         LocalDate start = LocalDate.of(2017, Month.JANUARY, 1);
